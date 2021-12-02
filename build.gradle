@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+plugins{
+    id "calces.appconfig" version "3.3.0-alpha01"
+}
+
+appConfig {
+    debugEnable false
+    apps {
+        app {
+            mainActivity ".MainActivity"
+            name ":app"
+            applicationId "com.example.zhuangao3yuekao"
+            applicationName ".App"
+            modules ':login',
+                    ':pay',
+                    ':talksay',
+                    ':tel'
+        }
+
+    }
+
+    modules {
+        login {
+            applicationId "com.example.login"
+            mainActivity ".LoginActivity"
+            applicationName ".App"
+            name ":login"
+            isRunAlone true
+        }
+        pay {
+            applicationId "com.example.pay"
+            mainActivity ".PayActivity"
+            applicationName ".App"
+            name ":pay"
+            isRunAlone true
+        }
+        talksay {
+            applicationId "com.example.talksay"
+            mainActivity ".TalkActivity"
+            applicationName ".App"
+            name ":talksay"
+            isRunAlone true
+        }
+        tel {
+            applicationId "com.example.tel"
+            applicationName ".App"
+            mainActivity ".TellActivity"
+            name ":tel"
+            isRunAlone true
+        }
+
+    }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

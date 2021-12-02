@@ -1,0 +1,2 @@
+include ':app', ':utils', ':login', ':tel', ':talksay', ':pay'
+rootProject.name='zhuangao3yuekao'
